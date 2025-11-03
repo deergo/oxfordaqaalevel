@@ -43,12 +43,13 @@ body {
 .container { max-width: 1000px; margin: 0 auto; padding: 1rem; }
 
 #top { 
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  width: 1px; 
-  height: 1px; 
-  visibility: hidden; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .site-header { background: var(--header-bg); border-bottom: 1px solid var(--border); position: sticky; top: 0; backdrop-filter: blur(8px); }
