@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anchor Test</title>
+    <style>
+        html { scroll-behavior: smooth; }
+        .section { height: 100vh; padding: 2rem; }
+        .top { background: lightblue; }
+        .middle { background: lightcoral; }
+        .bottom { background: lightgreen; }
+        .back-top { 
+            color: blue; 
+            text-decoration: none; 
+            padding: 0.5rem 1rem; 
+            background: white; 
+            border: 1px solid blue; 
+        }
+        .back-top:hover { background: lightblue; }
+    </style>
+</head>
+<body>
+    <div id="top" class="section top">
+        <h1>TOP SECTION</h1>
+        <p>This is the top of the page</p>
+        <a href="#middle">Go to Middle</a>
+    </div>
+    
+    <div id="middle" class="section middle">
+        <h1>MIDDLE SECTION</h1>
+        <p>This is the middle</p>
+        <a href="#bottom">Go to Bottom</a><br>
+        <a class="back-top" href="#top">Back to top</a>
+    </div>
+    
+    <div id="bottom" class="section bottom">
+        <h1>BOTTOM SECTION</h1>
+        <p>This is the bottom</p>
+        <a class="back-top" href="#top">Back to top</a>
+    </div>
+</body>
+</html>
