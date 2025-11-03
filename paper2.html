@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" id="top">
     <div class="container">
       <h1>Paper 2 – Theory (AS Level)</h1>
       <nav class="top-nav">
@@ -126,7 +126,52 @@
       <h2>6. Computer Systems</h2>
       <div id="s6-1">
         <h3>Hardware & Software</h3>
-        <p class="note">Hardware: physical components. Software: instructions executing on hardware.</p>
+        <h4>What is Hardware?</h4>
+        <p><strong>Exam-style definition:</strong> Hardware refers to the <strong>physical components</strong> of a computer system — the parts that can be touched — that work together to process, store, and communicate data.</p>
+        <p><strong>Examples:</strong></p>
+        <ul>
+          <li><strong>Input devices:</strong> keyboard, microphone, scanner</li>
+          <li><strong>Output devices:</strong> monitor, printer, speakers</li>
+          <li><strong>Storage devices:</strong> SSD, hard drive, USB flash drive</li>
+          <li><strong>Processing devices:</strong> CPU, GPU</li>
+          <li><strong>Communication devices:</strong> network interface cards, routers</li>
+        </ul>
+        <p class="note">Exam tip: If asked, “name a component on a sound card that transforms a continuous signal into a form that can be stored by a computer,” the answer is <strong>Analogue to Digital Converter (ADC)</strong>.</p>
+
+        <h4>Hardware Categories</h4>
+        <table>
+          <thead>
+            <tr><th>Category</th><th>Description</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Input Hardware</td><td>Converts real-world data into a digital form</td><td>Keyboard, microphone</td></tr>
+            <tr><td>Output Hardware</td><td>Converts digital data into human-readable form</td><td>Monitor, printer</td></tr>
+            <tr><td>Processing Hardware</td><td>Executes instructions and performs calculations</td><td>CPU, ALU, GPU</td></tr>
+            <tr><td>Storage Hardware</td><td>Retains data and programs</td><td>HDD, SSD, optical discs</td></tr>
+            <tr><td>Communication Hardware</td><td>Enables data transfer between devices</td><td>Network card, modem</td></tr>
+          </tbody>
+        </table>
+
+        <h4>Software Overview</h4>
+        <p><strong>Exam-style definition:</strong> Software is a <strong>set of instructions or programs</strong> that tell the hardware what to do. It is intangible and enables a computer to perform useful tasks.</p>
+        <p><strong>Key distinction:</strong> Hardware performs operations; <strong>software provides the instructions</strong> that control it.</p>
+        <p class="note">Exam pattern: “State the difference between hardware and software.” One-mark answer: “Hardware is the physical equipment; software is the set of programs that control it.”</p>
+
+        <h4>Firmware</h4>
+        <p><strong>Firmware</strong> is software stored permanently in <strong>ROM</strong>. It provides low-level control of hardware devices — for example, the BIOS that initialises hardware when a computer starts.</p>
+
+        <h4>Relationship Between Hardware and Software</h4>
+        <table>
+          <thead>
+            <tr><th>Hardware Role</th><th>Software Role</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Executes machine code instructions</td><td>Provides those instructions</td></tr>
+            <tr><td>Performs physical operations</td><td>Defines logical processes</td></tr>
+            <tr><td>Dependent on software to function</td><td>Dependent on hardware to execute</td></tr>
+          </tbody>
+        </table>
+        <p><em>Example:</em> The <strong>CPU</strong> executes instructions provided by the <strong>Operating System</strong> (software), which in turn controls input/output hardware such as printers or screens.</p>
       </div>
       <div id="s6-2">
         <h3>System and Application Software</h3>
@@ -177,6 +222,7 @@
             <tr><td>System Software</td><td>Manages hardware, provides platform for apps</td><td>OS, drivers</td></tr>
             <tr><td>Application Software</td><td>Performs user tasks</td><td>Word processor</td></tr>
             <tr><td>Utility</td><td>Maintains/optimises system performance</td><td>Virus scanner</td></tr>
+            <tr><td>Translator</td><td>Converts source code to machine code</td><td>Assembler, compiler, interpreter</td></tr>
             <tr><td>Driver</td><td>Allows OS to communicate with hardware</td><td>Printer driver</td></tr>
           </tbody>
         </table>
