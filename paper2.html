@@ -129,26 +129,97 @@
         <p class="note">Hardware: physical components. Software: instructions executing on hardware.</p>
       </div>
       <div id="s6-2">
-        <h3>System vs Application Software</h3>
+        <h3>System and Application Software</h3>
+        <h4>What is System Software?</h4>
+        <p><strong>Exam-style definition:</strong> System software enables the hardware and user applications to communicate. It manages hardware operations, provides an interface for the user, and ensures efficient execution of programs.</p>
+
+        <h4>Utility Software</h4>
+        <p>Utilities are <em>system programs</em> designed to perform maintenance or optimisation tasks.</p>
         <ul>
-          <li>System: operating systems, utilities, translators, libraries</li>
-          <li>Application: user-oriented programs</li>
+          <li>Examples: file compression, virus scanning, defragmentation, system monitoring, backup and recovery</li>
+        </ul>
+        <p class="note">Exam tip: mark schemes often award one mark per correct example of a utility.</p>
+
+        <h4>Device Drivers</h4>
+        <p><strong>Definition:</strong> Programs that allow the operating system to communicate with hardware peripherals.</p>
+        <p><strong>Example:</strong> A printer driver translates generic OS instructions into device-specific commands.</p>
+        <p class="note">Why drivers are needed: the OS requires a driver to translate its commands into the form the hardware understands.</p>
+
+        <h4>Application Software</h4>
+        <p><strong>Exam-style definition:</strong> Application software is written to perform specific user-oriented tasks, rather than managing hardware.</p>
+        <ul>
+          <li>General-purpose: e.g., word processors, spreadsheets</li>
+          <li>Special-purpose: e.g., payroll system</li>
+          <li>Bespoke: developed for a single organisation</li>
+        </ul>
+
+        <h4>Interaction Between System and Application Software</h4>
+        <table>
+          <thead>
+            <tr><th>System Software</th><th>Application Software</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Provides a platform for applications</td><td>Runs on the system software</td></tr>
+            <tr><td>Controls hardware operations</td><td>Used by the end-user</td></tr>
+            <tr><td>Includes OS, utilities, drivers, translators</td><td>Includes word processors, games, browsers</td></tr>
+          </tbody>
+        </table>
+
+        <h4>Summary (Exam-focused)</h4>
+        <table>
+          <thead>
+            <tr><th>Term</th><th>Precise Exam Definition</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Hardware</td><td>Physical components of a computer</td><td>CPU, RAM</td></tr>
+            <tr><td>Software</td><td>Programs/instructions controlling hardware</td><td>OS, apps</td></tr>
+            <tr><td>Firmware</td><td>Software permanently stored in ROM</td><td>BIOS</td></tr>
+            <tr><td>System Software</td><td>Manages hardware, provides platform for apps</td><td>OS, drivers</td></tr>
+            <tr><td>Application Software</td><td>Performs user tasks</td><td>Word processor</td></tr>
+            <tr><td>Utility</td><td>Maintains/optimises system performance</td><td>Virus scanner</td></tr>
+            <tr><td>Driver</td><td>Allows OS to communicate with hardware</td><td>Printer driver</td></tr>
+          </tbody>
+        </table>
+
+        <h4>Common Exam Question Styles</h4>
+        <ul>
+          <li>State the difference between system and application software.</li>
+          <li>Identify one function of an operating system.</li>
+          <li>Explain why a driver is needed for a new device.</li>
+          <li>Give two examples of utility software.</li>
         </ul>
       </div>
       <div id="s6-3">
-        <h3>OS Functions</h3>
-        <ul>
-          <li>Scheduling, memory management</li>
-          <li>I/O management, interrupt handling</li>
-        </ul>
+        <h3>Operating System (OS) – Functions</h3>
+        <p><strong>Purpose:</strong> The OS acts as an interface between hardware and software. It hides hardware complexity from users and applications.</p>
+        <ol>
+          <li><strong>Resource Management</strong> – controls CPU time, memory, and peripherals</li>
+          <li><strong>File Management</strong> – stores, retrieves, and organises files</li>
+          <li><strong>Process Management</strong> – multitasking and scheduling</li>
+          <li><strong>Security Management</strong> – access rights and permissions</li>
+          <li><strong>User Interface</strong> – GUI and/or CLI</li>
+          <li><strong>Device Management</strong> – communicates with hardware via device drivers</li>
+        </ol>
+        <p class="note">Exam tip: a valid “one function of an OS” answer could be: managing memory or providing a user interface.</p>
       </div>
       <div id="s6-4">
         <h3>Programming Languages & Translation</h3>
+        <p>Software that converts source code into machine code is called a <strong>translator</strong>.</p>
+        <table>
+          <thead>
+            <tr><th>Type</th><th>Function</th><th>Example Use</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Assembler</td><td>Converts assembly language to machine code</td><td>Low-level hardware control</td></tr>
+            <tr><td>Compiler</td><td>Translates high-level code into an executable file</td><td>Performance and distribution (e.g., C#, Java)</td></tr>
+            <tr><td>Interpreter</td><td>Translates and executes code line-by-line</td><td>Scripting and rapid testing (e.g., Python)</td></tr>
+          </tbody>
+        </table>
         <ul>
-          <li>Low- vs high-level languages</li>
-          <li>Assemblers, compilers, interpreters, JIT</li>
-          <li>Source vs object code; bytecode & virtual machines</li>
+          <li>Know the distinction between <em>source</em> and <em>object</em> code.</li>
+          <li>Some languages target <em>bytecode</em> for execution on a <em>virtual machine</em>.</li>
         </ul>
+        <p class="note">Exam link: assembly language requires an assembler; high-level languages are compiled or interpreted.</p>
       </div>
       <a class="back-top" href="#top">Back to top</a>
     </section>
