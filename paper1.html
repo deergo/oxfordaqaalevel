@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" id="top">
     <div class="container">
       <h1>Paper 1 – Programming (AS Level)</h1>
       <nav class="top-nav">
@@ -19,7 +19,7 @@
   </header>
 
   <main class="container">
-    <p class="small">On-screen assessment (C#, Python, or VB.Net). Duration: 2 hours. Marks: 75.</p>
+    <p class="small">On-screen assessment (C#, Python, or VB.Net). Duration: 2 hours. Marks: 75. Language focus here: <strong>Python</strong> — emphasis on concepts, understanding, tracing, and writing code.</p>
 
     <section class="toc">
       <strong>Contents</strong>
@@ -29,7 +29,7 @@
             <li><a href="#s1-1">Data Types</a></li>
             <li><a href="#s1-2">Programming Concepts</a></li>
             <li><a href="#s1-3">Arithmetic / Relational / Boolean Ops</a></li>
-            <li><a href="#s1-4">Strings & Conversions</a></li>
+            <li><a href="#s1-4">String Handling &amp; Manipulation</a></li>
             <li><a href="#s1-5">Random Numbers</a></li>
             <li><a href="#s1-6">Exception Handling</a></li>
             <li><a href="#s1-7">Subroutines & Scope</a></li>
@@ -39,8 +39,8 @@
           <ul>
             <li><a href="#s2-1">Arrays & Lists</a></li>
             <li><a href="#s2-2">Records</a></li>
-            <li><a href="#s2-3">Queues</a></li>
-            <li><a href="#s2-4">Stacks</a></li>
+            <li><a href="#s2-3">Queues (FIFO)</a></li>
+            <li><a href="#s2-4">Stacks (LIFO)</a></li>
           </ul>
         </li>
         <li><a href="#s3">3. Program Design</a>
@@ -55,85 +55,369 @@
           <ul>
             <li><a href="#s4-1">Searching (Linear, Binary)</a></li>
             <li><a href="#s4-2">Sorting (Bubble, Merge)</a></li>
+            <li><a href="#s4-3">Conceptual Efficiency</a></li>
+            <li><a href="#s4-4">Tracing & Testing</a></li>
           </ul>
         </li>
       </ul>
     </section>
-
     <section id="s1" class="section">
       <h2>1. Procedural Programming</h2>
+
       <div id="s1-1">
         <h3>Data Types</h3>
-        <p class="note">Integer, real/float, Boolean, character, string, date/time. Know typical operations and storage implications.</p>
+        <p>Every variable holds a value of a particular data type. A data type defines what operations are valid.</p>
+        <table>
+          <thead>
+            <tr><th>Type</th><th>Example</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Integer (int)</td><td><code>x = 12</code></td><td>Whole numbers</td></tr>
+            <tr><td>Real / Float (float)</td><td><code>pi = 3.14</code></td><td>Fractional values</td></tr>
+            <tr><td>Boolean (bool)</td><td><code>flag = True</code></td><td>True / False logic</td></tr>
+            <tr><td>Character (str length 1)</td><td><code>grade = 'A'</code></td><td>Single symbol</td></tr>
+            <tr><td>String (str)</td><td><code>name = "Leila"</code></td><td>Sequence of characters</td></tr>
+            <tr><td>Date/Time</td><td><code>datetime.date.today()</code></td><td>Imported from library</td></tr>
+          </tbody>
+        </table>
+        <h4>Type conversion</h4>
+        <pre><code class="language-python">age = int(input("Enter age: "))
+height = float(input("Enter height in m: "))
+print(str(age) + " years old")</code></pre>
       </div>
+
       <div id="s1-2">
         <h3>Programming Concepts</h3>
-        <ul>
-          <li>Variables and assignment</li>
-          <li>Selection (if / elif / else or switch)</li>
-          <li>Iteration (definite and indefinite)</li>
-          <li>User input/output</li>
-          <li>Meaningful identifiers and comments</li>
-        </ul>
+        <h4 id="s1-2-varconst">Variables and Constants</h4>
+        <pre><code class="language-python">PI = 3.14159     # constant (uppercase by convention)
+radius = 5
+area = PI * radius ** 2</code></pre>
+        <h4 id="s1-2-seliter">Selection and Iteration</h4>
+        <pre><code class="language-python">if score &gt;= 70:
+    grade = "A"
+elif score &gt;= 50:
+    grade = "B"
+else:
+    grade = "C"
+
+for i in range(5):
+    print(i)
+
+while True:
+    x = int(input("Enter positive number: "))
+    if x &gt; 0:
+        break</code></pre>
       </div>
+
       <div id="s1-3">
         <h3>Arithmetic / Relational / Boolean Operations</h3>
-        <ul>
-          <li>Arithmetic: +, −, ×, ÷ (real), DIV, MOD, exponentiation; rounding vs truncation</li>
-          <li>Relational: =, ≠, <, >, ≤, ≥</li>
-          <li>Boolean: NOT, AND, OR, XOR (precedence: NOT > AND > OR)</li>
-        </ul>
+        <h4>Arithmetic</h4>
+        <table>
+          <thead>
+            <tr><th>Operation</th><th>Symbol</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Addition</td><td>+</td><td><code>a + b</code></td></tr>
+            <tr><td>Subtraction</td><td>-</td><td><code>a - b</code></td></tr>
+            <tr><td>Multiplication</td><td>*</td><td><code>a * b</code></td></tr>
+            <tr><td>Division (real)</td><td>/</td><td><code>a / b</code></td></tr>
+            <tr><td>Integer division</td><td>//</td><td><code>a // b</code></td></tr>
+            <tr><td>Remainder</td><td>%</td><td><code>a % b</code></td></tr>
+            <tr><td>Exponent</td><td>**</td><td><code>a ** b</code></td></tr>
+          </tbody>
+        </table>
+        <h4>Relational and Boolean</h4>
+        <pre><code class="language-python">x, y = 5, 10
+print(x &lt; y)                 # True
+print(x != y)                # True
+print(not (x &gt; y))           # True
+print(x &lt; y and y &lt; 20)      # True
+
+# Precedence: NOT &gt; AND &gt; OR</code></pre>
       </div>
+
       <div id="s1-4">
-        <h3>Strings & Conversions</h3>
-        <ul>
-          <li>Length, position/index, substring, concatenation</li>
-          <li>Char/code conversions</li>
-          <li>Type conversions between string, integer, float, date</li>
-        </ul>
+        <h3>String Handling &amp; Manipulation</h3>
+        <p>Strings are sequences of characters. In Python, they are <strong>immutable</strong> (cannot be changed once created), but we can build new strings from them.</p>
+
+        <h4>Basic Operations</h4>
+        <pre><code class="language-python">text = "ComputerScience"
+print(len(text))          # 15  → length
+print(text[0])            # 'C' → first character
+print(text[-1])           # 'e' → last character
+print(text[3:9])          # 'puterS' → substring slice
+print(text[:8])           # 'Computer' → from start
+print(text[8:])           # 'Science' → to end
+print(text[::-1])         # 'ecneicSretupmoC' → reverse</code></pre>
+
+        <h4>Finding and Counting</h4>
+        <pre><code class="language-python">print(text.find("Sci"))   # 8 → position of substring
+print(text.count("e"))    # 3 → number of occurrences</code></pre>
+
+        <h4>String Transformation</h4>
+        <pre><code class="language-python">word = "hello"
+print(word.upper())             # "HELLO"
+print(word.capitalize())        # "Hello"
+print(word.replace("l", "x"))  # "hexxo"</code></pre>
+
+        <h4>Concatenation and Joining</h4>
+        <pre><code class="language-python">first = "Data"
+second = "Structures"
+combined = first + " " + second
+print(combined)
+
+# Join multiple items
+words = ["One", "Two", "Three"]
+print(", ".join(words))   # "One, Two, Three"</code></pre>
+
+        <h4>Character ↔ Code Conversion</h4>
+        <pre><code class="language-python">print(ord('A'))   # 65  → ASCII / Unicode code
+print(chr(66))    # 'B' → back to character</code></pre>
+
+        <h4>Building and Editing Strings</h4>
+        <p>Because strings are immutable, you construct new ones:</p>
+        <pre><code class="language-python">s = "Python"
+s = s[:2] + "r" + s[3:]   # change 't' → 'r' → "Pyrron"</code></pre>
+
+        <h4>Iterating through Characters</h4>
+        <pre><code class="language-python">for ch in "Exam":
+    print(ch)</code></pre>
+
+        <div class="note">
+          <strong>Exam Tips</strong>
+          <ul>
+            <li>Use clear slicing syntax (<code>[start:end:step]</code>).</li>
+            <li>Indexes start at <code>0</code>.</li>
+            <li>String questions often award 1–2 marks for correct indexing logic or substring formation.</li>
+          </ul>
+        </div>
       </div>
+
       <div id="s1-5">
         <h3>Random Numbers</h3>
-        <p class="note">Generate random integers/reals for simulations, testing, and sampling.</p>
+        <pre><code class="language-python">import random
+num = random.randint(1, 6)    # inclusive
+print(num)</code></pre>
       </div>
+
       <div id="s1-6">
         <h3>Exception Handling</h3>
-        <p class="note">Use try/catch patterns to manage run-time errors and ensure graceful recovery.</p>
+        <pre><code class="language-python">try:
+    value = int(input("Enter a number: "))
+except ValueError:
+    print("That was not a valid integer.")</code></pre>
       </div>
+
       <div id="s1-7">
-        <h3>Subroutines & Scope</h3>
+        <h3>Subroutines &amp; Scope</h3>
+        <pre><code class="language-python">def area_circle(r):
+    return 3.14159 * r ** 2   # function returns value
+
+def greet(name):
+    print("Hello", name)      # procedure performs action</code></pre>
         <ul>
-          <li>Parameters (by value/reference), return values</li>
-          <li>Local vs global variables</li>
-          <li>Modularisation benefits; stack frames (return address, params, locals)</li>
+          <li>Scope: Variables defined inside a subroutine are local.</li>
+          <li>Advantages: modularisation, re-use, easier debugging.</li>
+          <li>Stack frame: stores return address, parameters, and local variables for each call.</li>
         </ul>
       </div>
+
       <a class="back-top" href="#top">Back to top</a>
     </section>
 
     <section id="s2" class="section">
       <h2>2. Fundamental Data Structures</h2>
+      <div class="note">
+        Procedural implementations using global variables and pointer control. Avoid built-in list methods like <code>.append()</code> or <code>.pop()</code> to reinforce algorithmic understanding.
+      </div>
       <div id="s2-1">
         <h3>Arrays & Lists</h3>
-        <p class="note">1D/2D arrays or dynamic lists; understand static vs dynamic storage.</p>
+        <pre><code class="language-python">marks = [60, 70, 80]
+marks.append(90)
+print(marks[2])        # 80
+print(len(marks))      # 4
+
+# 2-D lists (tables)
+matrix = [[1,2,3],[4,5,6]]
+print(matrix[1][0])    # 4
+
+# Static vs Dynamic: arrays (fixed size) vs Python lists (dynamic)</code></pre>
       </div>
       <div id="s2-2">
         <h3>Records</h3>
-        <p class="note">Group related fields; equivalents include Python dataclass or C# struct.</p>
+        <p>Group related fields together (like a dataclass or struct in other languages).</p>
+        <pre><code class="language-python">student = {"name": "Aisha", "age": 18, "grade": "A"}
+print(student["name"])</code></pre>
       </div>
       <div id="s2-3">
-        <h3>Queues</h3>
+        <h3>Queues – FIFO (First In First Out)</h3>
+        <p>A queue stores data so that the first item added is the first removed. Use two pointers:</p>
         <ul>
-          <li>FIFO; enqueue and dequeue</li>
-          <li>Linear and circular queue implementations</li>
+          <li><strong>head</strong> → index of the next item to remove</li>
+          <li><strong>tail</strong> → index of the last item added</li>
         </ul>
+        <p>This version avoids modulus; pointers are reset manually when they reach the end of the array.</p>
+
+        <h4>Structure and Variables</h4>
+        <pre><code class="language-python">MAX_SIZE = 5
+queue = [None] * MAX_SIZE
+head = 0
+tail = -1
+count = 0</code></pre>
+
+        <h4>Operations</h4>
+        <p><strong>enqueue(item)</strong></p>
+        <pre><code class="language-python">def enqueue(item):
+    global head, tail, count
+    if count &lt; MAX_SIZE:
+        if tail == MAX_SIZE - 1:   # wrap manually
+            tail = 0
+        else:
+            tail = tail + 1
+        queue[tail] = item
+        count = count + 1
+    else:
+        print("Queue overflow")</code></pre>
+
+        <p><strong>dequeue()</strong></p>
+        <pre><code class="language-python">def dequeue():
+    global head, tail, count
+    if count &gt; 0:
+        value = queue[head]
+        queue[head] = None
+        if head == MAX_SIZE - 1:   # wrap manually
+            head = 0
+        else:
+            head = head + 1
+        count = count - 1
+        return value
+    else:
+        print("Queue underflow")</code></pre>
+
+        <p><strong>display()</strong></p>
+        <pre><code class="language-python">def display():
+    if count == 0:
+        print("Queue empty")
+    else:
+        i = head
+        c = 0
+        while c &lt; count:
+            print(queue[i], end=" ")
+            i = i + 1
+            if i == MAX_SIZE:      # manual wrap
+                i = 0
+            c = c + 1
+        print()</code></pre>
+
+        <h4>Example Run</h4>
+        <pre><code class="language-python">enqueue("A")
+enqueue("B")
+enqueue("C")
+display()          # A B C
+print("Removed:", dequeue())
+display()          # B C
+enqueue("D")
+enqueue("E")
+display()          # B C D E</code></pre>
+
+        <h4>Key Concepts</h4>
+        <table>
+          <thead>
+            <tr><th>Term</th><th>Meaning</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>head</td><td>Points to next item to remove</td></tr>
+            <tr><td>tail</td><td>Points to last inserted item</td></tr>
+            <tr><td>count</td><td>Tracks number of items in queue</td></tr>
+            <tr><td>Overflow</td><td>Attempt to add when full</td></tr>
+            <tr><td>Underflow</td><td>Attempt to remove when empty</td></tr>
+            <tr><td>Uses</td><td>Print spooling, scheduling, buffering</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          <strong>Exam Tips</strong>
+          <ul>
+            <li>Draw an array diagram showing movement of head, tail, and top.</li>
+            <li>Always check for overflow and underflow before updating pointers.</li>
+            <li>When pointers reach <code>MAX_SIZE - 1</code>, reset them to <code>0</code> only after the current operation.</li>
+            <li>Use clear variable names — this earns method marks even if output is wrong.</li>
+          </ul>
+        </div>
       </div>
+
       <div id="s2-4">
-        <h3>Stacks</h3>
-        <ul>
-          <li>LIFO; push, pop, peek/top</li>
-          <li>Array-based or library implementations</li>
-        </ul>
+        <h3>Stacks – LIFO (Last In First Out)</h3>
+        <p>A stack stores data so the last item added is the first removed. Manage access using a pointer called <strong>top</strong> that tracks the index of the most recent item.</p>
+
+        <h4>Structure and Variables</h4>
+        <pre><code class="language-python">MAX_SIZE = 5
+stack = [None] * MAX_SIZE
+top = -1        # -1 means the stack is empty</code></pre>
+
+        <h4>Operations</h4>
+        <p><strong>push(item)</strong></p>
+        <pre><code class="language-python">def push(item):
+    global top
+    if top &lt; MAX_SIZE - 1:
+        top = top + 1
+        stack[top] = item
+    else:
+        print("Stack overflow")</code></pre>
+
+        <p><strong>pop()</strong></p>
+        <pre><code class="language-python">def pop():
+    global top
+    if top &gt;= 0:
+        value = stack[top]
+        stack[top] = None          # clear optional
+        top = top - 1
+        return value
+    else:
+        print("Stack underflow")</code></pre>
+
+        <p><strong>peek()</strong></p>
+        <pre><code class="language-python">def peek():
+    if top &gt;= 0:
+        return stack[top]
+    else:
+        print("Stack empty")</code></pre>
+
+        <p><strong>display()</strong></p>
+        <pre><code class="language-python">def display():
+    if top == -1:
+        print("Stack empty")
+    else:
+        for i in range(top, -1, -1):
+            print(stack[i])</code></pre>
+
+        <h4>Example Run</h4>
+        <pre><code class="language-python">push("A")
+push("B")
+display()
+print("Top item:", peek())
+print("Removed:", pop())
+display()</code></pre>
+
+        <h4>Output</h4>
+        <pre><code class="language-text">B
+A
+Top item: B
+Removed: B
+A</code></pre>
+
+        <h4>Key Concepts</h4>
+        <table>
+          <thead>
+            <tr><th>Term</th><th>Meaning</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>top</td><td>Index of the most recently added item</td></tr>
+            <tr><td>Overflow</td><td>Attempt to push when <code>top == MAX_SIZE - 1</code></td></tr>
+            <tr><td>Underflow</td><td>Attempt to pop when <code>top == -1</code></td></tr>
+            <tr><td>Uses</td><td>Undo systems, function call stack, expression evaluation</td></tr>
+          </tbody>
+        </table>
       </div>
       <a class="back-top" href="#top">Back to top</a>
     </section>
@@ -166,19 +450,74 @@
       <h2>4. Searching and Sorting Algorithms</h2>
       <div id="s4-1">
         <h3>Searching</h3>
-        <ul>
-          <li>Linear search: sequential scan</li>
-          <li>Binary search: divide-and-conquer; requires sorted data</li>
-          <li>Compare conceptual efficiency (time) at a high level</li>
-        </ul>
+        <p><strong>Linear Search</strong> — checks each item in order until found or the list ends.</p>
+        <pre><code class="language-python">def linear_search(data, target):
+    for i in range(len(data)):
+        if data[i] == target:
+            return i
+    return -1</code></pre>
+        <p><strong>Binary Search</strong> — requires sorted data; halves the range each step.</p>
+        <pre><code class="language-python">def binary_search(data, target):
+    low, high = 0, len(data) - 1
+    while low &lt;= high:
+        mid = (low + high) // 2
+        if data[mid] == target:
+            return mid
+        elif data[mid] &lt; target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1</code></pre>
       </div>
       <div id="s4-2">
         <h3>Sorting</h3>
-        <ul>
-          <li>Bubble sort: iterative adjacent swaps</li>
-          <li>Merge sort: divide, sort, merge</li>
-          <li>Discuss suitability, efficiency, and memory footprint</li>
-        </ul>
+        <p><strong>Bubble Sort</strong> — repeatedly swaps adjacent items that are out of order.</p>
+        <pre><code class="language-python">def bubble_sort(data):
+    n = len(data)
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if data[j] &gt; data[j + 1]:
+                data[j], data[j + 1] = data[j + 1], data[j]</code></pre>
+        <p><strong>Merge Sort</strong> — divide the list, sort halves, then merge.</p>
+        <pre><code class="language-python">def merge_sort(data):
+    if len(data) &gt; 1:
+        mid = len(data) // 2
+        left = data[:mid]
+        right = data[mid:]
+
+        merge_sort(left)
+        merge_sort(right)
+
+        i = j = k = 0
+        while i &lt; len(left) and j &lt; len(right):
+            if left[i] &lt; right[j]:
+                data[k] = left[i]; i += 1
+            else:
+                data[k] = right[j]; j += 1
+            k += 1
+
+        while i &lt; len(left):
+            data[k] = left[i]; i += 1; k += 1
+        while j &lt; len(right):
+            data[k] = right[j]; j += 1; k += 1</code></pre>
+      </div>
+      <div id="s4-3">
+        <h3>Conceptual Efficiency Comparison</h3>
+        <table>
+          <thead>
+            <tr><th>Algorithm</th><th>Idea</th><th>Relative Efficiency</th><th>Memory Use</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Linear Search</td><td>Sequential check</td><td>Slow for large lists</td><td>Low</td></tr>
+            <tr><td>Binary Search</td><td>Halves search space</td><td>Faster if sorted</td><td>Low</td></tr>
+            <tr><td>Bubble Sort</td><td>Swap adjacent pairs</td><td>Less efficient</td><td>Low</td></tr>
+            <tr><td>Merge Sort</td><td>Divide &amp; merge</td><td>More efficient for large lists</td><td>Higher</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="s4-4">
+        <h3>Tracing and Testing Algorithms</h3>
+        <p>In exams you may be asked to trace an algorithm. Use a table showing the index, current comparison, and swaps or iterations. Always indicate when the list becomes fully sorted or when a search ends.</p>
       </div>
       <a class="back-top" href="#top">Back to top</a>
     </section>
